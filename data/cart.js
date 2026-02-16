@@ -1,3 +1,5 @@
+
+ 
  export let cart=JSON.parse(localStorage.getItem('cart'));
 
  if(!cart){
@@ -40,6 +42,7 @@
     });
     }
     saveToStorage();
+    
 
 }
 
@@ -53,6 +56,7 @@ export function removeFromCart(productId){
 
   cart=newCart;
   saveToStorage();
+
 }
 
 
@@ -69,5 +73,6 @@ export function updateDeliveryOption(productId,deliveryOptionId){
     matchingItem.deliveryOptionsId=deliveryOptionId;
 
     saveToStorage();
+
 
 }
