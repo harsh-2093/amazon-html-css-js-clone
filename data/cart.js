@@ -1,6 +1,12 @@
 
  
- export let cart=JSON.parse(localStorage.getItem('cart'));
+ export let cart; 
+ 
+ loadFromStorage();
+
+ export function loadFromStorage()
+ {
+  cart=JSON.parse(localStorage.getItem('cart'));
 
  if(!cart){
   cart=[{
@@ -14,7 +20,7 @@
   deliveryOptionsId:'2',
  }];
  }
- 
+ }
 
  function saveToStorage(){
   localStorage.setItem('cart',JSON.stringify(cart));
@@ -22,7 +28,8 @@
 
 
   export function addToCart(productId){
-  const itemvalue=document.querySelector(`.add-cart-quantity-${productId}`).value;
+  const input = document.querySelector(`.add-cart-quantity-${productId}`);
+const itemvalue = input ? Number(input.value) : 1;
   let matchingItem;
 
     cart.forEach((cartItem)=>{
